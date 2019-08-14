@@ -19,17 +19,15 @@
 6. (optional) Download & use Robo 3T from [https://robomongo.org](https://robomongo.org) to display your DB content.
 
 ### Server
-1. go to the server directory
+1. Go to the server directory and write in the terminal :
 
 2. npm install
 
 3. npm run dev
 
 ### Client
-1. in the terminal write : npm install -g create-react-app
+1. Go to the client directory and write in the terminal : 
 
-2. go to the client directory
+2. npm install
 
-3. npm install
-
-4. npm run start
+3. npm run start
