@@ -7,4 +7,4 @@
 *5.to start the server for the first time, in the terminal write (swich to C local disk first) :*<br />
 &nbsp;&nbsp;*`./Users/{your name}/mongodb/bin/mongod.exe --dbpath=/Users/{your name}/mongodb-data`*<br />
 &nbsp;&nbsp;*OR (if not working)*<br />
-&nbsp;&nbsp;*`.\/Users/{your name}/mongodb/bin/mongod --dbpath=/Users/{your name}/mongodb-data`*<br />
+&nbsp;&nbsp;*`.\/Users/{your name}/mongodb/bin/mongod.exe --dbpath=/Users/{your name}/mongodb-data`*<br />
