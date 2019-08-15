@@ -10,7 +10,7 @@ const databaseName = 'comments-manager'
 app.use( bodyParser.json() )
 app.use(bodyParser.urlencoded( {extended: true} ))
 
-app.post('/insert', (req,res) => {
+app.post('/api/insert', (req,res) => {
 
     MongoClient.connect(connectionURL, { useNewUrlParser:true }, (error, client) => {
         if (error){
@@ -29,7 +29,7 @@ app.post('/insert', (req,res) => {
     res.send({ message: 'comment was entered successfully from the user' })
 })
 
-app.get('/comments', (req,res) => {
+app.get('/api/comments', (req,res) => {
 
     MongoClient.connect(connectionURL, { useNewUrlParser:true }, (error, client) => {
         if (error){

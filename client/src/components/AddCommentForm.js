@@ -1,26 +1,63 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 import './App.css';
 
 class AddCommentForm extends Component {
+
+    constructor(props){
+        super(props)
+
+        this.state = {
+            email:'',
+            comment:'',
+            rating: 0
+        }
+    }
+
+    changeHandler = (e) => {
+        this.setState({[e.target.name]: e.target.value})
+    }
+
+    submitHandler = (e) => {
+        e.preventDefault()
+        //console.log(this.state)
+        this.props.addComment(this.state);
+    }
+
     render() {
+
+        const { email, comment, rating } = this.state
+
         return (
             <div className="App_content">
-                <Form>
+                <Form onSubmit={this.submitHandler}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control
+                            type="email"
+                            placeholder="Enter email"
+                            name="email"
+                            value={email}
+                            onChange={this.changeHandler}
+                        />
                     </Form.Group>
 
                     <Form.Group controlId="formComment">
                         <Form.Label>Comment</Form.Label>
-                        <Form.Control placeholder="Add your comment" />
+                        <Form.Control
+                            placeholder="Add your comment"
+                            name="comment"
+                            value={comment}
+                            onChange={this.changeHandler}
+                        />
                     </Form.Group>
 
                     <Form.Group controlId="formRating">
                         <Form.Label>Rating</Form.Label>
-                        <Form.Control as="select">
+                        <Form.Control as="select" name="rating" value={rating} onChange={this.changeHandler} >
                             <option hidden value={0}>Pick 1-5</option>
                             <option value={1}>1</option>
                             <option value={2}>2</option>
@@ -39,4 +76,4 @@ class AddCommentForm extends Component {
     }
 };
 
-export default AddCommentForm;
+export default connect(null, actions)(AddCommentForm);
