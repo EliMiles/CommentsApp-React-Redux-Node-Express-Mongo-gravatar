@@ -1,14 +1,10 @@
-.Header_content {
-  text-align: center;
-}
-
 .App_content {
   margin-left: 25%;
 }
 
 .AddCommentForm_content {
-  margin-right: 40%;
   margin-top: 5%;
+  margin-right: 40%;
 }
 
 .SearchComment_content {
@@ -21,6 +17,25 @@
   margin-right: 20%;
 }
 
-.borderTest {
-  border: 1px solid black;
+.item {
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.email {
+  padding-left: 1%;
+}
+
+.comment {
+  padding-left: 1%;
+  word-wrap: break-word;
+}
+
+.ratingNumber {
+  padding-top: 0.5%;
+}
+
+.gravatar {
+  text-align: center;
+  border-radius: 50%;
 }

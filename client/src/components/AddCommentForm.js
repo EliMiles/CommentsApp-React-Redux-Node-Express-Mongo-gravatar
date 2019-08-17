@@ -22,7 +22,7 @@ class AddCommentForm extends Component {
     }
 
     submitHandler = (e) => {
-        e.preventDefault()
+        //e.preventDefault()
         
         this.props.addComment(this.state); // call to addComment function in actions/index.js
 
@@ -31,8 +31,6 @@ class AddCommentForm extends Component {
             comment:'',
             rating: 0
         })
-
-        //TODO : find how to refresh the page after pressing submit button!
     }
 
     render() {
