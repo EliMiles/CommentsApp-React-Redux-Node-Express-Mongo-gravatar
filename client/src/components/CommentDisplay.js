@@ -1,46 +1,19 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
-//import * as actions from '../actions';
+import * as actions from '../actions';
 
 import './App.css';
 
 class CommentDisplay extends Component {
 
-    // componentDidMount(){
-        
-    //     this.props.getAllComments()
-    // }
-
-    // constructor(props){
-    //     super(props)
-
-    //     this.state = {
-    //         email:'',
-    //         comment:'',
-    //         rating: 0
-    //     }
-    // }
-
-    // changeHandler = (e) => {
-    //     this.setState({[e.target.name]: e.target.value})
-    // }
-
-    // submitHandler = (e) => {
-    //     e.preventDefault()
-    //     //console.log(this.state)
-    //     this.props.addComment(this.state);
-
-    //     this.setState({
-    //         email:'',
-    //         comment:'',
-    //         rating: 0
-    //     })
-    // }
+    componentDidMount(){
+        this.props.getAllComments() // call to getAllComments function in actions/index.js
+    }
 
     render() {
 
-        console.log(this.props);
+        console.log(this.props.comments); // gets all the comments from the general state ( the store! )
 
         return (
             <div className="App_content CommentDisplay_content">
@@ -61,8 +34,8 @@ class CommentDisplay extends Component {
     }
 }
 
-function mapStateToProps({ getAllComments }){
-    return { getAllComments };
+function mapStateToProps({ comments }){
+    return { comments };
 }
 
-export default connect(mapStateToProps)(CommentDisplay);
+export default connect(mapStateToProps,actions)(CommentDisplay);

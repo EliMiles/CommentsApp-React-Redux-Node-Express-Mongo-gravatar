@@ -23,14 +23,16 @@ class AddCommentForm extends Component {
 
     submitHandler = (e) => {
         e.preventDefault()
-        //console.log(this.state)
-        this.props.addComment(this.state);
+        
+        this.props.addComment(this.state); // call to addComment function in actions/index.js
 
         this.setState({
             email:'',
             comment:'',
             rating: 0
         })
+
+        //TODO : find how to refresh the page after pressing submit button!
     }
 
     render() {
