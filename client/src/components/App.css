@@ -3,5 +3,24 @@
 }
 
 .App_content {
-    margin: 0% 35%;
+  margin-left: 25%;
+}
+
+.AddCommentForm_content {
+  margin-right: 40%;
+  margin-top: 5%;
+}
+
+.SearchComment_content {
+  margin-top: 3%;
+  margin-right: 30%;
+}
+
+.CommentDisplay_content {
+  margin-top: 3%;
+  margin-right: 20%;
+}
+
+.borderTest {
+  border: 1px solid black;
 }

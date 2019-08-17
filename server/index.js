@@ -26,6 +26,8 @@ app.post('/api/insert', (req,res) => {
         })
     })
 
+    console.log('server : addComment');
+
     res.send({ message: 'comment was entered successfully from the user' })
 })
 
@@ -43,7 +45,11 @@ app.get('/api/comments', (req,res) => {
                 console.log('Did not found any comments')
             }
 
+            console.log('server : getAllComments');
+            console.log(result);
+
             res.send(result)
+            //res.send('a test from the server')
         })
     })
 })

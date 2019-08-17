@@ -25,6 +25,12 @@ class AddCommentForm extends Component {
         e.preventDefault()
         //console.log(this.state)
         this.props.addComment(this.state);
+
+        this.setState({
+            email:'',
+            comment:'',
+            rating: 0
+        })
     }
 
     render() {
@@ -32,7 +38,7 @@ class AddCommentForm extends Component {
         const { email, comment, rating } = this.state
 
         return (
-            <div className="App_content">
+            <div className="App_content AddCommentForm_content">
                 <Form onSubmit={this.submitHandler}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
