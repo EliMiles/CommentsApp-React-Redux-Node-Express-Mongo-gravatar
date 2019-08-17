@@ -1,4 +1,4 @@
-import { GET_ALL_COMMENTS } from '../actions/types';
+import { GET_ALL_COMMENTS, FILTER_COMMENTS } from '../actions/types';
 
 //export default function (state = null, action) {
 export default function (state = [{}], action) {
@@ -8,6 +8,8 @@ export default function (state = [{}], action) {
             //console.log(action.payload);
             return action.payload || [{}]; // updating the general state ( the store! ) in src/index.js
             //return action.payload || false; // updating the general state ( the store! ) in src/index.js
+        case FILTER_COMMENTS:
+            return action.payload || [{}];
         default:
             return state;
     }
