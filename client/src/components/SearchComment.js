@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form , InputGroup} from 'react-bootstrap';
-import IosSearch from 'react-ionicons/lib/IosSearch'
+import { MdSearch } from "react-icons/md";
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
@@ -20,20 +20,18 @@ class SearchComment extends Component {
 
         this.setState({[e.target.name]:e.target.value})
         
-        this.props.filterComments(e.target.value, this.props.comments); // call to addComment function in actions/index.js
-
-        //console.log(this.state.searchInput);
+        this.props.filterComments(e.target.value); // call to filterComments function in actions/index.js
     }
 
     render() {
-
-        //console.log(this.props.comments); // gets all the comments from the general state ( the store! )
 
         return (
             <div className="App_content SearchComment_content">
                 <Form noValidate>
                     <InputGroup>
-                        <IosSearch className="searchIcon" />
+                        <InputGroup.Prepend>
+                            <InputGroup.Text><MdSearch /></InputGroup.Text>
+                        </InputGroup.Prepend>
                         <Form.Control
                             className="searchInput"
                             name="searchInput"

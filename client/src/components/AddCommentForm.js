@@ -18,10 +18,12 @@ class AddCommentForm extends Component {
     }
 
     changeHandler = (e) => {
+
         this.setState({[e.target.name]: e.target.value})
     }
 
     submitHandler = (e) => {
+        
         //e.preventDefault()
         
         this.props.addComment(this.state); // call to addComment function in actions/index.js

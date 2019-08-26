@@ -19,16 +19,77 @@ app.post('/api/insert', (req,res) => {
 
         const db = client.db(databaseName)
 
+        const lowerCaseEmail = req.body.email.toLowerCase()
+
         db.collection('comments').insertOne({
-            email: req.body.email,
+            email: lowerCaseEmail,
             comment: req.body.comment,
             rating:req.body.rating
         })
     })
 
-    console.log('server : addComment');
-
     res.send({ message: 'comment was entered successfully from the user' })
+})
+
+app.post('/api/updateLastActive', (req,res) => {
+
+    MongoClient.connect(connectionURL, { useNewUrlParser:true }, (error, client) => {
+        if (error){
+            return console.log('Unable to connect to database!')
+        }
+
+        const db = client.db(databaseName)
+
+        const lowerCaseEmail = req.body.email.toLowerCase()
+
+        db.listCollections({name: 'lastActive'}).next(function(err, collinfo) {
+            if (collinfo) { // lastActive collection exsits
+
+                db.collection('lastActive').find({}).toArray( (err, result) => {
+                    if (err) {
+                        return console.log('Did not found any contents')
+                    }
+                    
+                    let flag = 0;
+
+                    result.map((collection) => { // if the email is exists it will be updated
+
+                        if (collection.email === lowerCaseEmail){
+
+                            db.collection('lastActive').updateOne(
+                                {email:lowerCaseEmail}, //query
+                                // $update query
+                                { $set : {
+                                    date: req.body.date,
+                                    time: req.body.time
+                            }});
+
+                            flag = 1;
+                        }
+                    })
+
+                    if (flag == 0) { // if the email is not exists yet it will be insertded for the first time
+                        
+                        db.collection('lastActive').insertOne({
+                            email: lowerCaseEmail,
+                            date: req.body.date,
+                            time:req.body.time
+                        })
+                    }
+                })
+            }
+            else { // lastActive collection does not exsits
+
+                db.collection('lastActive').insertOne({ // create the lastActive collection with the first content
+                    email: lowerCaseEmail,
+                    date: req.body.date,
+                    time:req.body.time
+                })
+            }
+
+            res.send({ message: 'Email account last active time was updated!' })
+        });
+    })
 })
 
 app.get('/api/comments', (req,res) => {
@@ -42,14 +103,29 @@ app.get('/api/comments', (req,res) => {
 
         db.collection('comments').find({}).toArray( (err, result) => {
             if (err) {
-                console.log('Did not found any comments')
+                return console.log('Did not found any comments')
             }
 
-            console.log('server : getAllComments');
-            console.log(result);
+            res.send(result)
+        })
+    })
+})
+
+app.get('/api/allLastActive', (req,res) => {
+
+    MongoClient.connect(connectionURL, { useNewUrlParser:true }, (error, client) => {
+        if (error){
+            return console.log('Unable to connect to database!')
+        }
+
+        const db = client.db(databaseName)
+
+        db.collection('lastActive').find({}).toArray( (err, result) => {
+            if (err) {
+                return console.log('Did not found any comments')
+            }
 
             res.send(result)
-            //res.send('a test from the server')
         })
     })
 })

@@ -7,12 +7,20 @@ import reduxThunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';
 
+// const store = createStore(
+//     reducers,
+//     {},
+//     compose(
+//         applyMiddleware(reduxThunk),
+//         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+//     )
+// ); // store = Redux!
+
 const store = createStore(
     reducers,
     {},
     compose(
-        applyMiddleware(reduxThunk),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        applyMiddleware(reduxThunk)
     )
 ); // store = Redux!
 
