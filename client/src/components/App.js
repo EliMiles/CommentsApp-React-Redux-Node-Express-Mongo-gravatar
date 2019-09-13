@@ -3,18 +3,14 @@ import { BrowserRouter , Route } from 'react-router-dom';
 
 import './App.css';
 
-import AddCommentForm from './AddCommentForm';
-import SearchComment from './SearchComment';
-import CommentDisplay from './CommentDisplay';
+import commentsPage from './commentsPage';
 
 const App = () => {
     return (
         <div>
             <BrowserRouter>
                 <div>
-                    <Route exact path="/" component={AddCommentForm} />
-                    <Route exact path="/" component={SearchComment} />
-                    <Route exact path="/" component={CommentDisplay} />
+                    <Route exact path="/" component={commentsPage} />
                 </div>
             </BrowserRouter>
         </div>
