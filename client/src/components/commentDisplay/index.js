@@ -105,8 +105,11 @@ class CommentDisplay extends Component {
     }
 }
 
-function mapStateToProps({ comments , lastActiveTime }){ // getting the updated general state ( the store! ) from src/index.js
-    return { comments , lastActiveTime };
+function mapStateToProps(state){ // getting the updated general state ( the store! ) from src/index.js
+    return {
+        comments: state.commentsStore.comments,
+        lastActiveTime: state.lastActiveTimeStore.lastActiveTime
+    };
 }
 
 export default connect(mapStateToProps,actions)(CommentDisplay);
