@@ -1,4 +1,4 @@
-import { GET_ALL_LAST_ACTIVE_TIME } from '../actions/types';
+import { GET_ALL_LAST_ACTIVE_TIME } from './types';
 
 export default function (state = [{}], action) {
     switch (action.type) {

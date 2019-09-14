@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Form , InputGroup} from 'react-bootstrap';
 import { MdSearch } from "react-icons/md";
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../../pages/main/actions';
 
-import './App.css';
+import './style.css';
 
 class SearchComment extends Component {
 
@@ -48,8 +48,4 @@ class SearchComment extends Component {
     }
 };
 
-function mapStateToProps({ comments }){ // getting the updated general state ( the store! ) from src/index.js
-    return { comments };
-}
-
-export default connect(mapStateToProps,actions)(SearchComment);
+export default connect(null,actions)(SearchComment);

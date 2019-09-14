@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Container, Row, Col , Image } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { FaStar } from "react-icons/fa";
-import * as actions from '../actions';
+import * as actions from '../../pages/main/actions';
 
-import './App.css';
+import './style.css';
 
 class CommentDisplay extends Component {
 

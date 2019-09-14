@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../../pages/main/actions';
 
-import './App.css';
+import './style.css';
 
 class AddCommentForm extends Component {
 

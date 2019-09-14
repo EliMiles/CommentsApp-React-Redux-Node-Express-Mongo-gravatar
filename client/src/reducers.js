@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import commentsReducer from './commentsReducer';
-import lastActiveTimeReducer from './lastActiveTimeReducer';
+import commentsReducer from './pages/main/commentsReducer';
+import lastActiveTimeReducer from './pages/main/lastActiveTimeReducer';
 
 export default combineReducers({
     comments: commentsReducer,

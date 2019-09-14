@@ -1,20 +1,18 @@
 import React from 'react';
 import { BrowserRouter , Route } from 'react-router-dom';
 
-import './App.css';
+import main from './pages/main';
 
-import commentsPage from './commentsPage';
-
-const App = () => {
+const AppRouter = () => {
     return (
         <div>
             <BrowserRouter>
                 <div>
-                    <Route exact path="/" component={commentsPage} />
+                    <Route exact path="/" component={main} />
                 </div>
             </BrowserRouter>
         </div>
     );
 };
 
-export default App;
+export default AppRouter;

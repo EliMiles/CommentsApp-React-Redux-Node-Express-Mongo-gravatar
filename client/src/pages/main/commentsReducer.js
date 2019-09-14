@@ -1,4 +1,4 @@
-import { GET_ALL_COMMENTS, FILTER_COMMENTS } from '../actions/types';
+import { GET_ALL_COMMENTS, FILTER_COMMENTS } from './types';
 
 export default function (state = [{}], action) {
     switch (action.type) {
